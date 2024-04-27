@@ -16,13 +16,18 @@ const OrderItem = ({ order, markOrderAsRead }) => {
       onPress={handlePress}
     >
       <View style={styles.details}>
-        <Text style={styles.orderId}>Commande #{order.id}</Text>
-        <Text style={styles.orderStatus}>
-          Statut : {order.status}
-        </Text>
+        <Text style={styles.orderId}>Commande N° {order.id} :</Text>
         <Text style={styles.orderDate}>
-          Date : {new Date(order.date).toLocaleString()}
+                  Date : {new Date(order.created_at).toLocaleString()}
+                </Text>
+                <Text style={styles.orderType}>
+                          Type : {order.type}
+                        </Text>
+        <Text style={styles.orderTotal}>
+          Total : {order.totalAmount} DH
         </Text>
+
+
       </View>
     </TouchableOpacity>
   );
@@ -33,6 +38,7 @@ const styles = StyleSheet.create({
     padding: 16,
     marginVertical: 8,
     borderRadius: 8,
+    marginHorizontal:5
   },
   readOrder: {
     backgroundColor: '#d4edda',
@@ -40,13 +46,9 @@ const styles = StyleSheet.create({
   unreadOrder: {
     backgroundColor: '#fff3cd',
   },
-  details: {
-  },
   orderId: {
     fontWeight: 'bold',
     fontSize: 16,
-  },
-  orderStatus: {
   },
   orderDate: {
   },

@@ -10,7 +10,7 @@ const App = () => {
   const [password, setPassword] = useState('');
 
   const handleLogin = (usernameInput, passwordInput) => {
-    if (usernameInput === 'Naima' && passwordInput === '123456789') {
+    if (usernameInput === 'TighalineAdmin' && passwordInput === '123456789') {
       setIsLoggedIn(true);
       setUsername(usernameInput);
       setPassword(passwordInput);
@@ -19,10 +19,16 @@ const App = () => {
     }
   };
 
+  const handleLogout = () => {
+      setIsLoggedIn(false);
+      setUsername('');
+      setPassword('');
+    };
+
   return (
     <View style={styles.container}>
       {isLoggedIn ? (
-        <MainScreen username={username} password={password} />
+        <MainScreen username={username} password={password} handleLogout={handleLogout} />
       ) : (
         <LoginScreen handleLogin={handleLogin} />
       )}

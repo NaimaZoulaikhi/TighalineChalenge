@@ -1,11 +1,12 @@
 // screens/MainScreen.js
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, View, FlatList } from 'react-native';
+import { StyleSheet, View, FlatList, Button } from 'react-native';
 import Header from '../components/Header';
 import OrderItem from '../components/OrderItem';
 import TestNotificationButton from '../components/TestNotificationButton'; // Importation du composant
+import LogoutButton from '../components/LogoutButton';
 
-const MainScreen = ({ username, password }) => {
+const MainScreen = ({ username, password, handleLogout }) => {
   const [orders, setOrders] = useState([]);
   const [unreadOrdersCount, setUnreadOrdersCount] = useState(0);
 
@@ -36,7 +37,7 @@ const MainScreen = ({ username, password }) => {
 
   return (
     <View style={styles.container}>
-          <Header unreadOrdersCount={unreadOrdersCount} />
+          <Header unreadOrdersCount={unreadOrdersCount} handleLogout={handleLogout}/>
           <FlatList
             data={orders}
             keyExtractor={(item) => item.id.toString()}
