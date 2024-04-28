@@ -3,8 +3,18 @@ import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import MainScreen from './screens/MainScreen';
 import LoginScreen from './screens/LoginScreen';
+import { notificationService } from './NotificationService';
 
 const App = () => {
+   useEffect(() => {
+       notificationService.configure();
+       notificationService.configureBackgroundTask();
+
+       return () => {
+         notificationService.unregister();
+       };
+     }, []);
+
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
