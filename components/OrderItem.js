@@ -36,7 +36,7 @@ const OrderItem = ({ order, markOrderAsRead }) => {
 const styles = StyleSheet.create({
   container: {
     padding: 16,
-    marginVertical: 8,
+    marginVertical: 3,
     borderRadius: 8,
     marginHorizontal:5
   },

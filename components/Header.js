@@ -22,8 +22,6 @@ const Header = ({ unreadOrdersCount, handleLogout }) => (
   </View>
 );
 
-
-
 const styles = StyleSheet.create({
   header: {
     backgroundColor: '#011c40',
@@ -31,6 +29,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
+    marginTop:40
   },
   headerText: {
     color: '#fff',
@@ -40,7 +39,7 @@ const styles = StyleSheet.create({
   notificationContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginRight: 25
+    marginRight: 10
   },
   notificationBadge: {
     backgroundColor: '#ce6428',

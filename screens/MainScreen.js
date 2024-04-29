@@ -29,10 +29,11 @@ const MainScreen = ({ username, password, handleLogout }) => {
   const markOrderAsRead = (orderId) => {
     setOrders((prevOrders) =>
       prevOrders.map((order) =>
-        order.id === orderId ? { ...order, read: true } : order
+        order.id === orderId && !order.read ? { ...order, read: true } : order
       )
     );
-    setUnreadOrdersCount((prevCount) => prevCount - 1);
+    setUnreadOrdersCount((prevCount) =>
+    prevCount - orders.filter((order)=>order.id === orderId && !order.read).length);
   };
 
   return (
